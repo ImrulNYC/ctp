@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Education Resources</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="../static/index.css">
+</head>
+
+<body>
+    <header>
+        <h1>CUNY Resources</h1>
+        <nav>
+            <ul>
+                <li><a href="/templates/index.html">Home</a></li>
+                <li><a href="/templates/food.html">Food</a></li>
+                <li><a href="/templates/education.html">Education</a></li>
+                <li><a href="/templates/mental_health.html">Mental Health</a></li>
+                
+              
+            </ul>
+        </nav>
+    </header>
+
+    <section id="welcome">
+        <h2>Welcome to CUNY Resources</h2>
+        <p>Your one-stop destination for all educational and well-being resources at CUNY. Explore the various categories to find helpful information, links to external resources, and support for your academic and personal journey.</p>
+        <a href="https://www.cuny.edu/about/university-resources/" class="btn">Explore  Resources</a>
+    </section>
+
+    <section id="featured">
+        <h2>Featured Sections</h2>
+        <div class="featured-container">
+            <div class="featured-item">
+                <h3><a href="/templates/education.html">Education</a></h3>
+                <p>Access top online courses and educational materials to enhance your learning experience.</p>
+            </div>
+            <div class="featured-item">
+                <h3><a href="/templates/food.html">Food</a></h3>
+                <p>Discover food resources and meal plans to maintain a healthy lifestyle while studying.</p>
+            </div>
+            <div class="featured-item">
+                <h3><a href="/templates/mental_health.html">Mental Health</a></h3>
+                <p>Find support and resources for maintaining mental well-being during your studies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Recent Posts</h2>
+        {% for post in posts %}
+        <div class="post">
+            <h3>{{ post.title }}</h3>
+            {% if post.image_url %}
+            <img src="{{ post.image_url }}" alt="{{ post.title }}">
+            {% endif %}
+            <p>{{ post.content[:100] }}... <a href="#">Read more</a></p>
+        </div>
+        {% endfor %}
+    </section>
+    <footer>
+        <p>&copy; 2024 CTP Hack GoGoCoders | All rights reserved</p>
+    </footer>
+</body>
+
+</html>
